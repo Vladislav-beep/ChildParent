@@ -38,14 +38,13 @@ class ViewController: UIViewController {
     private lazy var childrenLabel: UILabel = {
         let childrenLabel = UILabel()
         childrenLabel.text = "Дeти (макс.5)"
+        childrenLabel.font = UIFont.systemFont(ofSize: 18)
         childrenLabel.translatesAutoresizingMaskIntoConstraints = false
         return childrenLabel
     }()
     
-    private lazy var addChildButton: UIButton = {
-        let addChildButton = UIButton()
-        addChildButton.backgroundColor = .blue
-        addChildButton.translatesAutoresizingMaskIntoConstraints = false
+    private lazy var addChildButton: AddChildButton = {
+        let addChildButton = AddChildButton()
         return addChildButton
     }()
 
@@ -53,7 +52,7 @@ class ViewController: UIViewController {
         let stack = UIStackView(arrangedSubviews: [childrenLabel, addChildButton])
         stack.distribution = .fill
         stack.axis = .horizontal
-        stack.spacing = 10
+        stack.spacing = 15
         stack.translatesAutoresizingMaskIntoConstraints = false
         return stack
     }()
@@ -95,7 +94,7 @@ class ViewController: UIViewController {
             childButtonStack.topAnchor.constraint(equalTo: nameAndAgeStack.bottomAnchor, constant: 10),
             childButtonStack.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15),
             childButtonStack.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15),
-            childButtonStack.heightAnchor.constraint(equalToConstant: 50)
+            childButtonStack.heightAnchor.constraint(equalToConstant: 45)
         ])
     }
 }
