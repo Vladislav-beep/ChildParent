@@ -13,6 +13,7 @@
 		B905769027BEA879002FEB3E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B905768E27BEA879002FEB3E /* Main.storyboard */; };
 		B905769227BEA879002FEB3E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B905769127BEA879002FEB3E /* Assets.xcassets */; };
 		B905769527BEA879002FEB3E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B905769327BEA879002FEB3E /* LaunchScreen.storyboard */; };
+		B905769F27BEB026002FEB3E /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B905769E27BEB026002FEB3E /* CustomView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		B905769127BEA879002FEB3E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B905769427BEA879002FEB3E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B905769627BEA879002FEB3E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B905769E27BEB026002FEB3E /* CustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				B905768827BEA879002FEB3E /* AppDelegate.swift */,
 				B905768A27BEA879002FEB3E /* SceneDelegate.swift */,
 				B905768C27BEA879002FEB3E /* ViewController.swift */,
+				B905769E27BEB026002FEB3E /* CustomView.swift */,
 				B905768E27BEA879002FEB3E /* Main.storyboard */,
 				B905769127BEA879002FEB3E /* Assets.xcassets */,
 				B905769327BEA879002FEB3E /* LaunchScreen.storyboard */,
@@ -138,6 +141,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B905768D27BEA879002FEB3E /* ViewController.swift in Sources */,
+				B905769F27BEB026002FEB3E /* CustomView.swift in Sources */,
 				B905768927BEA879002FEB3E /* AppDelegate.swift in Sources */,
 				B905768B27BEA879002FEB3E /* SceneDelegate.swift in Sources */,
 			);
@@ -296,7 +300,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = swift.ru.ChildParent;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -315,7 +319,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = swift.ru.ChildParent;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
