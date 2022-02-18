@@ -14,7 +14,10 @@
 		B905769227BEA879002FEB3E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B905769127BEA879002FEB3E /* Assets.xcassets */; };
 		B905769527BEA879002FEB3E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B905769327BEA879002FEB3E /* LaunchScreen.storyboard */; };
 		B905769F27BEB026002FEB3E /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B905769E27BEB026002FEB3E /* CustomView.swift */; };
-		B9B6022E27BEDBEE00FDD8A1 /* addChildButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B6022D27BEDBEE00FDD8A1 /* addChildButton.swift */; };
+		B944F74627BFF15000DE9855 /* ClearButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B944F74527BFF15000DE9855 /* ClearButton.swift */; };
+		B944F74A27BFF3FD00DE9855 /* ChildCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B944F74927BFF3FD00DE9855 /* ChildCell.swift */; };
+		B944F74D27C00B9F00DE9855 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = B944F74C27C00B9F00DE9855 /* Model.swift */; };
+		B9B6022E27BEDBEE00FDD8A1 /* AddChildButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B6022D27BEDBEE00FDD8A1 /* AddChildButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,7 +30,10 @@
 		B905769427BEA879002FEB3E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B905769627BEA879002FEB3E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B905769E27BEB026002FEB3E /* CustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
-		B9B6022D27BEDBEE00FDD8A1 /* addChildButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addChildButton.swift; sourceTree = "<group>"; };
+		B944F74527BFF15000DE9855 /* ClearButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClearButton.swift; sourceTree = "<group>"; };
+		B944F74927BFF3FD00DE9855 /* ChildCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildCell.swift; sourceTree = "<group>"; };
+		B944F74C27C00B9F00DE9855 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		B9B6022D27BEDBEE00FDD8A1 /* AddChildButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddChildButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,15 +68,42 @@
 			children = (
 				B905768827BEA879002FEB3E /* AppDelegate.swift */,
 				B905768A27BEA879002FEB3E /* SceneDelegate.swift */,
-				B905768C27BEA879002FEB3E /* ViewController.swift */,
-				B9B6022D27BEDBEE00FDD8A1 /* addChildButton.swift */,
-				B905769E27BEB026002FEB3E /* CustomView.swift */,
+				B944F74F27C011AD00DE9855 /* Module */,
+				B944F74827BFF3EA00DE9855 /* Cell */,
+				B944F74327BFF05200DE9855 /* SubViews */,
 				B905768E27BEA879002FEB3E /* Main.storyboard */,
 				B905769127BEA879002FEB3E /* Assets.xcassets */,
 				B905769327BEA879002FEB3E /* LaunchScreen.storyboard */,
 				B905769627BEA879002FEB3E /* Info.plist */,
 			);
 			path = ChildParent;
+			sourceTree = "<group>";
+		};
+		B944F74327BFF05200DE9855 /* SubViews */ = {
+			isa = PBXGroup;
+			children = (
+				B905769E27BEB026002FEB3E /* CustomView.swift */,
+				B9B6022D27BEDBEE00FDD8A1 /* AddChildButton.swift */,
+				B944F74527BFF15000DE9855 /* ClearButton.swift */,
+			);
+			path = SubViews;
+			sourceTree = "<group>";
+		};
+		B944F74827BFF3EA00DE9855 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				B944F74927BFF3FD00DE9855 /* ChildCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		B944F74F27C011AD00DE9855 /* Module */ = {
+			isa = PBXGroup;
+			children = (
+				B905768C27BEA879002FEB3E /* ViewController.swift */,
+				B944F74C27C00B9F00DE9855 /* Model.swift */,
+			);
+			path = Module;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -144,10 +177,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				B905768D27BEA879002FEB3E /* ViewController.swift in Sources */,
+				B944F74627BFF15000DE9855 /* ClearButton.swift in Sources */,
 				B905769F27BEB026002FEB3E /* CustomView.swift in Sources */,
+				B944F74A27BFF3FD00DE9855 /* ChildCell.swift in Sources */,
 				B905768927BEA879002FEB3E /* AppDelegate.swift in Sources */,
-				B9B6022E27BEDBEE00FDD8A1 /* addChildButton.swift in Sources */,
+				B9B6022E27BEDBEE00FDD8A1 /* AddChildButton.swift in Sources */,
 				B905768B27BEA879002FEB3E /* SceneDelegate.swift in Sources */,
+				B944F74D27C00B9F00DE9855 /* Model.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
