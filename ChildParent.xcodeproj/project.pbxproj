@@ -17,7 +17,7 @@
 		B944F74627BFF15000DE9855 /* ClearButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B944F74527BFF15000DE9855 /* ClearButton.swift */; };
 		B944F74A27BFF3FD00DE9855 /* ChildCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B944F74927BFF3FD00DE9855 /* ChildCell.swift */; };
 		B944F74D27C00B9F00DE9855 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = B944F74C27C00B9F00DE9855 /* Model.swift */; };
-		B9B6022E27BEDBEE00FDD8A1 /* AddChildButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B6022D27BEDBEE00FDD8A1 /* AddChildButton.swift */; };
+		B9B6022E27BEDBEE00FDD8A1 /* addChildButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B6022D27BEDBEE00FDD8A1 /* addChildButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,7 +33,7 @@
 		B944F74527BFF15000DE9855 /* ClearButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClearButton.swift; sourceTree = "<group>"; };
 		B944F74927BFF3FD00DE9855 /* ChildCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildCell.swift; sourceTree = "<group>"; };
 		B944F74C27C00B9F00DE9855 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
-		B9B6022D27BEDBEE00FDD8A1 /* AddChildButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddChildButton.swift; sourceTree = "<group>"; };
+		B9B6022D27BEDBEE00FDD8A1 /* addChildButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addChildButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,7 +83,7 @@
 			isa = PBXGroup;
 			children = (
 				B905769E27BEB026002FEB3E /* CustomView.swift */,
-				B9B6022D27BEDBEE00FDD8A1 /* AddChildButton.swift */,
+				B9B6022D27BEDBEE00FDD8A1 /* addChildButton.swift */,
 				B944F74527BFF15000DE9855 /* ClearButton.swift */,
 			);
 			path = SubViews;
@@ -181,7 +181,7 @@
 				B905769F27BEB026002FEB3E /* CustomView.swift in Sources */,
 				B944F74A27BFF3FD00DE9855 /* ChildCell.swift in Sources */,
 				B905768927BEA879002FEB3E /* AppDelegate.swift in Sources */,
-				B9B6022E27BEDBEE00FDD8A1 /* AddChildButton.swift in Sources */,
+				B9B6022E27BEDBEE00FDD8A1 /* addChildButton.swift in Sources */,
 				B905768B27BEA879002FEB3E /* SceneDelegate.swift in Sources */,
 				B944F74D27C00B9F00DE9855 /* Model.swift in Sources */,
 			);
