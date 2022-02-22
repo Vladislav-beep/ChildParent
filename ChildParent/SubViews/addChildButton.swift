@@ -9,6 +9,8 @@ import UIKit
 
 class AddChildButton: UIButton {
     
+    // MARK: Life Time
+    
     init() {
         super.init(frame: .zero)
         initialize()
@@ -18,23 +20,21 @@ class AddChildButton: UIButton {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        layer.cornerRadius = frame.height / 2
+    }
+    
     // MARK: Methods
     
     private func initialize() {
-        
         setTitleColor(.systemBlue, for: .normal)
         tintColor = .systemBlue
         setTitle("  Добавить ребенка", for: .normal)
         setImage(UIImage(systemName: "plus"), for: .normal)
-        
         layer.borderWidth = 2.5
         layer.borderColor = UIColor.systemBlue.cgColor
         translatesAutoresizingMaskIntoConstraints = false
-    }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        layer.cornerRadius = frame.height / 2
     }
 }
 

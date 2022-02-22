@@ -9,7 +9,11 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    // MARK: Dependencies
+    
     var model = Model()
+    
+    // MARK: UI
     
     private lazy var nameView: CustomView = {
         let view = CustomView(labelText: "Имя")
@@ -40,7 +44,7 @@ class ViewController: UIViewController {
     private lazy var childrenLabel: UILabel = {
         let childrenLabel = UILabel()
         childrenLabel.text = "Дeти (макс.5)"
-        childrenLabel.font = UIFont.systemFont(ofSize: 18)
+        childrenLabel.font = UIFont.systemFont(ofSize: 17)
         childrenLabel.translatesAutoresizingMaskIntoConstraints = false
         return childrenLabel
     }()
@@ -49,15 +53,6 @@ class ViewController: UIViewController {
         let addChildButton = AddChildButton()
         addChildButton.addTarget(self, action: #selector(addRow), for: .touchUpInside)
         return addChildButton
-    }()
-
-    private lazy var childButtonStack: UIStackView = {
-        let stack = UIStackView(arrangedSubviews: [childrenLabel, addChildButton])
-        stack.distribution = .fill
-        stack.axis = .horizontal
-        stack.spacing = 15
-        stack.translatesAutoresizingMaskIntoConstraints = false
-        return stack
     }()
     
     private lazy var childrenTable: UITableView = {
@@ -76,18 +71,23 @@ class ViewController: UIViewController {
         return clearButton
     }()
     
+    // MARK: Life Time
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupAllConstraints()
         setupChildTable()
     }
     
+    // MARK: Actions
+    
     @objc func addRow() {
         if model.countChildren() < 5 {
             model.addChild()
+            setupAddChildButton()
             setupChildTable()
             childrenTable.beginUpdates()
-            childrenTable.insertRows(at: [IndexPath(row: model.countChildren() - 1, section: 0)],
+            childrenTable.insertRows(at: [IndexPath(row: 0, section: 0)],
                                      with: .automatic)
             childrenTable.endUpdates()
         }
@@ -97,10 +97,12 @@ class ViewController: UIViewController {
         
         let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
-        let delete = UIAlertAction(title: "Очистить", style: .default) { [weak self] _ in
+        let delete = UIAlertAction(title: "Сбросить данные", style: .default) { [weak self] _ in
             self?.model.clearChildArray()
             self?.setupChildTable()
+            self?.setupAddChildButton()
             self?.childrenTable.reloadData()
+            self?.clearTextFields()
         }
         
         let cancel = UIAlertAction(title: "Отмена", style: .cancel)
@@ -109,6 +111,21 @@ class ViewController: UIViewController {
         actionSheet.addAction(cancel)
         
         present(actionSheet, animated: true)
+    }
+    
+    // MARK: Private methods
+    
+    private func clearTextFields() {
+        nameView.textField.text = ""
+        ageView.textField.text = ""
+    }
+    
+    private func setupAddChildButton() {
+        if model.countChildren() < 5 {
+            addChildButton.isHidden = false
+        } else {
+            addChildButton.isHidden = true
+        }
     }
     
     private func setupChildTable() {
@@ -122,7 +139,8 @@ class ViewController: UIViewController {
     private func setupAllConstraints() {
         setupPersonalLabelConstraints()
         setupNameAndAgeStackConstraints()
-        setupChildButtonStack()
+        setupChildrenLabelConstraints()
+        setupAddChildButtonConstraints()
         setupClearButtonConstraints()
         setuptableViewConstraints()
     }
@@ -147,13 +165,23 @@ class ViewController: UIViewController {
         ])
     }
     
-    private func setupChildButtonStack() {
-        view.addSubview(childButtonStack)
+    private func setupChildrenLabelConstraints() {
+        view.addSubview(childrenLabel)
         NSLayoutConstraint.activate([
-            childButtonStack.topAnchor.constraint(equalTo: nameAndAgeStack.bottomAnchor, constant: 10),
-            childButtonStack.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15),
-            childButtonStack.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15),
-            childButtonStack.heightAnchor.constraint(equalToConstant: 45)
+            childrenLabel.topAnchor.constraint(equalTo: nameAndAgeStack.bottomAnchor, constant: 10),
+            childrenLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15),
+            childrenLabel.heightAnchor.constraint(equalToConstant: 45),
+            childrenLabel.widthAnchor.constraint(equalToConstant: 120)
+        ])
+    }
+    
+    private func setupAddChildButtonConstraints() {
+        view.addSubview(addChildButton)
+        NSLayoutConstraint.activate([
+            addChildButton.centerYAnchor.constraint(equalTo: childrenLabel.centerYAnchor, constant: 0),
+            addChildButton.leadingAnchor.constraint(equalTo: childrenLabel.trailingAnchor, constant: 10),
+            addChildButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15),
+            addChildButton.heightAnchor.constraint(equalToConstant: 45)
         ])
     }
     
@@ -170,13 +198,15 @@ class ViewController: UIViewController {
     private func setuptableViewConstraints() {
         view.addSubview(childrenTable)
         NSLayoutConstraint.activate([
-            childrenTable.topAnchor.constraint(equalTo: childButtonStack.bottomAnchor, constant: 10),
+            childrenTable.topAnchor.constraint(equalTo: childrenLabel.bottomAnchor, constant: 10),
             childrenTable.bottomAnchor.constraint(equalTo: clearButton.topAnchor, constant: -20),
             childrenTable.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
             childrenTable.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15)
         ])
     }
 }
+
+// MARK: UITableViewDataSource
 
 extension ViewController: UITableViewDataSource {
     
@@ -192,11 +222,20 @@ extension ViewController: UITableViewDataSource {
             tableView.deleteRows(at: [indexPath], with: .fade)
             self?.childrenTable.reloadData()
             self?.setupChildTable()
+            self?.setupAddChildButton()
+            cell.nameView.textField.text = ""
+            cell.ageView.textField.text = ""
         }
         
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
 }
+
+// MARK: UITableViewDelegate
 
 extension ViewController: UITableViewDelegate {
     

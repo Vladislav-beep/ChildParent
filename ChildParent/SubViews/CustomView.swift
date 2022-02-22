@@ -8,8 +8,12 @@
 import UIKit
 
 class CustomView: UIView {
+    
+    // MARK: Properties
 
     var labelText: String
+    
+    // MARK: UI
     
     private lazy var label: UILabel = {
         let label = UILabel()
@@ -20,7 +24,7 @@ class CustomView: UIView {
         return label
     }()
     
-    private lazy var textField: UITextField = {
+    lazy var textField: UITextField = {
         let textField = UITextField()
         textField.font = UIFont.systemFont(ofSize: 15)
         textField.translatesAutoresizingMaskIntoConstraints = false
@@ -36,6 +40,8 @@ class CustomView: UIView {
         return stack
     }()
     
+    // MARK: Life Time
+    
     init(labelText: String) {
         self.labelText = labelText
         super.init(frame: .zero)
@@ -45,6 +51,8 @@ class CustomView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    // MARK: Private methods
     
     private func setup() {
         setupStackConstraints()

@@ -9,6 +9,8 @@ import UIKit
 
 class ClearButton: UIButton {
     
+    // MARK: Life Time
+    
     init() {
         super.init(frame: .zero)
         initialize()
@@ -16,6 +18,11 @@ class ClearButton: UIButton {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        layer.cornerRadius = frame.height / 2
     }
     
     // MARK: Methods
@@ -29,10 +36,5 @@ class ClearButton: UIButton {
         layer.borderWidth = 2.5
         layer.borderColor = UIColor.systemRed.cgColor
         translatesAutoresizingMaskIntoConstraints = false
-    }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        layer.cornerRadius = frame.height / 2
     }
 }

@@ -69,7 +69,6 @@
 				B905768827BEA879002FEB3E /* AppDelegate.swift */,
 				B905768A27BEA879002FEB3E /* SceneDelegate.swift */,
 				B944F74F27C011AD00DE9855 /* Module */,
-				B944F74827BFF3EA00DE9855 /* Cell */,
 				B944F74327BFF05200DE9855 /* SubViews */,
 				B905768E27BEA879002FEB3E /* Main.storyboard */,
 				B905769127BEA879002FEB3E /* Assets.xcassets */,
@@ -102,6 +101,7 @@
 			children = (
 				B905768C27BEA879002FEB3E /* ViewController.swift */,
 				B944F74C27C00B9F00DE9855 /* Model.swift */,
+				B944F74827BFF3EA00DE9855 /* Cell */,
 			);
 			path = Module;
 			sourceTree = "<group>";

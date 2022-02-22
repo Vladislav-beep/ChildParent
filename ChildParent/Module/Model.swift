@@ -9,7 +9,11 @@ import Foundation
 
 class Model {
     
+    // MARK: Properties
+    
     var childArray = [Int]()
+    
+    // MARK: Methods
     
     func clearChildArray() {
         childArray.removeAll()
@@ -23,7 +27,7 @@ class Model {
         childArray.append(1)
     }
     
-    func removeChild(at indexPath: Int) {
-        childArray.remove(at: indexPath)
+    func removeChild(at row: Int) {
+        childArray.remove(at: row)
     }
 }

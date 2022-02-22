@@ -9,14 +9,18 @@ import UIKit
 
 class ChildCell: UITableViewCell {
     
+    // MARK: Properties
+    
     @objc var didDelete: () -> () = {}
     
-    private lazy var nameView: CustomView = {
+    // MARK: UI
+    
+    lazy var nameView: CustomView = {
         let view = CustomView(labelText: "Имя")
         return view
     }()
     
-    private lazy var ageView: CustomView = {
+    lazy var ageView: CustomView = {
         let view = CustomView(labelText: "Возраст")
         return view
     }()
@@ -40,6 +44,8 @@ class ChildCell: UITableViewCell {
         return deleteButton
     }()
     
+    // MARK: Life Time
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupStackConstraints()
@@ -50,9 +56,13 @@ class ChildCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: Actions
+    
     @objc func didTapDelete() {
         didDelete()
     }
+    
+    // MARK: Private methods
     
     private func setupStackConstraints() {
         contentView.addSubview(nameAndAgeStack)
